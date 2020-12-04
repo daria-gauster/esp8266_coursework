@@ -1,7 +1,6 @@
-#define PIN_LED 10
+#define PIN_LED 2
 #define PIN_PHOTO_SENSOR A0
 #define PIN_RELAY 10
-#define PIN_PHOTO_SENSOR A0
 
 void setup() {
   Serial.begin(9600);
