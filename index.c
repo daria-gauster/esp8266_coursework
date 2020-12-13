@@ -1,23 +1,19 @@
-#define PIN_LED 2
+//инициализация пина сенсора
 #define PIN_PHOTO_SENSOR A0
-
+//конфигурация платы
 void setup() {
   Serial.begin(9600);
-  pinMode(PIN_LED, OUTPUT);
+  pinMode(2, OUTPUT);
 }
-
+//запуск кода программы
 void loop() {
-  int val = 1023 – analogRead(PIN_PHOTO_RESISTOR);
+int val = analogRead(PIN_PHOTO_SENSOR); 
+//вывод значения пина
   Serial.println(val);
-
-  int ledPower = map(val, 0, 1023, 0, 255); // Преобразуем полученное значение в уровень 
-  //PWM-сигнала. Чем меньше значение освещенности, 
-  //тем меньше мощности мы должны подавать на светодиод через ШИМ.
-  }
-Serial.println(val);
+//проверка уровня освещения
   if (val < 300) {
-    digitalWrite(PIN_LED, LOW);
+    digitalWrite(2, HIGH);
   } else {
-    digitalWrite(PIN_LED, HIGH);
-  }
+    digitalWrite(2, LOW);
+}
 }
